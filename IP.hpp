@@ -1,3 +1,5 @@
+#ifndef __IPAPPEL
+#define __IPAPPEL
 #ifdef _WIN32
 
 #include <inaddr.h>
@@ -16,7 +18,7 @@ union ipAddress {
     unsigned long ipAddress;
 };
 
-class IpV4Address {
+class  __declspec(dllexport) IpV4Address {
     public:
         IpV4Address();
         IpV4Address(std::string ipAddress);
@@ -32,6 +34,7 @@ class IpV4Address {
         bool isLoopback();
 
         static std::vector<IpV4Address> getAllIpV4Addresses();
+        unsigned long deviceIndex;
 
     protected:
         union ipAddress ipV4Address;
@@ -42,3 +45,4 @@ class IpV4Address {
         bool isLinkLocal;
         */
 };
+#endif

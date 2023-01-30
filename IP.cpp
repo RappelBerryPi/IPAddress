@@ -30,6 +30,15 @@
 
 //TODO: extend to get the interface information which we're kind of already doing below, but add in generic cross/system
 //information like name and link local vs whatever.
+// in same subnet?
+// is private?
+// is class A?
+// is Class B?
+// is class C?
+// is greater than ?
+// assign
+// is less than?
+// play around with the new interface code.
 
 IpV4Address::IpV4Address() : IpV4Address(0L,0L) { }
 IpV4Address::IpV4Address(std::string ipAddress) {
@@ -126,6 +135,7 @@ std::vector<IpV4Address> IpV4Address::getAllIpV4Addresses() {
         }
         for (int i = 0; i < (int) pIPAddrTable->dwNumEntries; i++) {
             IpV4Address ipV4Address(ntohl(pIPAddrTable->table[i].dwAddr), ntohl(pIPAddrTable->table[i].dwMask));
+            ipV4Address.deviceIndex = pIPAddrTable->table[i].dwIndex;
             returnVector.push_back(ipV4Address);
         }
         if (pIPAddrTable) {
@@ -157,6 +167,7 @@ std::vector<IpV4Address> IpV4Address::getAllIpV4Addresses() {
 
 }
 
+    /*
 int main() {
     /*
     //IpV4Address ipV4Address(3232235521L,4294967040L);
@@ -168,11 +179,13 @@ int main() {
     std::cout << ipV4Address.getSubnetMask() << std::endl;
     */
 
+/*
     std::vector<IpV4Address> ipAddresses = IpV4Address::getAllIpV4Addresses();
     for (IpV4Address ipAddress: ipAddresses) {
         std::cout << ipAddress.getIpAddressCidr() << std::endl;
     }
     return 0;
+*/
 
     /*
     PMIB_IPADDRTABLE pIPAddrTable = (MIB_IPADDRTABLE *) malloc(sizeof(MIB_IPADDRTABLE));
@@ -229,4 +242,6 @@ int main() {
     }
     */
 
+/*
 }
+*/

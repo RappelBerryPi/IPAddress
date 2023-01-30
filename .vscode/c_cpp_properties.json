@@ -1,6 +1,14 @@
 {
     "configurations": [
         {
+            "name": "Win32",
+            "compilerPath": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Professional\\VC\\Tools\\MSVC\\14.34.31933\\bin\\HostX64\\x64\\cl.exe",
+            "cStandard": "c17",
+            "cppStandard": "c++14",
+            "intelliSenseMode": "windows-msvc-x64",
+            "defines": []
+        },
+        {
             "name": "Linux",
             "includePath": [
                 "${workspaceFolder}/**",
@@ -10,8 +18,8 @@
             "compilerPath": "/usr/bin/g++",
             "cStandard": "c17",
             "cppStandard": "c++14",
-            "intelliSenseMode": "linux-gcc-x64",
+            "intelliSenseMode": "linux-gcc-x64"
         }
     ],
-    "version": 4
+    "version": 4,
 }
